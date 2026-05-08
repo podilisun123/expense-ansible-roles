@@ -23,8 +23,9 @@
     login_password: "{{ login_password }}"
     login_host: "{{ login_host }}"
     filter: version
-    register: mysql_info
-    ignore_errors: yes
+  ignore_errors: yes
+  register: mysql_info
+
   
 - name: print mysql information
   ansible.builtin.debug:
