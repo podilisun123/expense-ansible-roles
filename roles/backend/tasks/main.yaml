@@ -8,9 +8,9 @@
   ansible.builtin.dnf: # only works for Redhat family
     name: "{{ item }}"
     state: latest
-    loop:
-    - nodejs
-    - mysql
+  loop:
+  - nodejs
+  - mysql
 
 - name: create expense user
   ansible.builtin.user:
@@ -36,7 +36,7 @@
   ansible.builtin.command: npm install
   args:
     chdir: /app
-    
+
 - name: copy the backend service
   ansible.builtin.template:
     src: backend.service.j2
