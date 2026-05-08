@@ -13,6 +13,8 @@
   ansible.builtin.import_role:
     name: common
     tasks_from: app-pre-req
+  tags:
+  - deployment
 
 # - name: remove default directory in nginx
 #   ansible.builtin.file:
