@@ -9,21 +9,26 @@
     state: started
     enabled: yes
 
-- name: remove default directory in nginx
-  ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: absent
+- name: import app-pre-req role
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: app-pre-req
 
-- name: create html directory
-  ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: directory
+# - name: remove default directory in nginx
+#   ansible.builtin.file:
+#     path: /usr/share/nginx/html
+#     state: absent
 
-- name: download and unzip the code
-  ansible.builtin.unarchive:
-    src: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
-    dest: /usr/share/nginx/html
-    remote_src: yes
+# - name: create html directory
+#   ansible.builtin.file:
+#     path: /usr/share/nginx/html
+#     state: directory
+
+# - name: download and unzip the code
+#   ansible.builtin.unarchive:
+#     src: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
+#     dest: /usr/share/nginx/html
+#     remote_src: yes
 
 - name: copy the frontend service 
   ansible.builtin.template:

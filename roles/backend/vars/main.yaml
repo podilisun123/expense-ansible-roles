@@ -2,3 +2,5 @@ login_user: root
 login_password: ExpenseApp@1
 login_host: db.jnpndevops.online
 db_host: db.jnpndevops.online
+app_location: /app
+component: backend
